@@ -13,35 +13,33 @@ This project classifies music tracks into one of ten genres using various audio 
 - TensorFlow / Keras (Neural networks)
 - Matplotlib / Seaborn
 
-## 🧼 Data Preprocessing
+## Data Preprocessing
 - Missing values in `tempo` filled with the column mean
 - Removed rows with other nulls (<1% of data)
 - Encoded categorical variables (key, mode, genre) into numeric values
 - Scaled continuous features using `StandardScaler`
 - Applied PCA on the training set only (to prevent data leakage)
 
-## 📉 Dimensionality Reduction & Clustering
+## Dimensionality Reduction & Clustering
 - **PCA** retained 95% of variance and reduced noise
 - **3D PCA Plot** showed overlapping genres
 
-> 🖼️ *PCA Visualization*  
+> *PCA Visualization*  
 > ![PCA Plot](images/pca_plot.png)
 
 - **GMM** clustering used BIC to determine optimal cluster count (6)
 - GMM provided better separation than PCA, but still had overlapping clusters
 
-> 🖼️ *GMM Cluster Plot*  
-> ![GMM Plot](images/gmm_clusters.png)
+> *GMM Cluster Plot*  
+> ![GMM Plot](images/gmm_plot.png)
 
-## 🧠 Neural Network Classification
+## Neural Network Classification
 - **Architecture**: 3 hidden layers with 256, 128, and 64 neurons
 - Used `ReLU`, `BatchNormalization`, and `Dropout`
 - Optimized with sparse categorical cross-entropy and early stopping
 
-> 🖼️ *Accuracy and Loss Plot*  
-> ![Training Accuracy](images/accuracy_plot.png)
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 - Evaluation metric: **AUC for each genre**
 - ROC curves plotted to visualize classification performance
 
@@ -58,6 +56,6 @@ This project classifies music tracks into one of ten genres using various audio 
 | Rap          | 0.92 |
 | Rock         | 0.94 |
 
-> 🖼️ *ROC Curve Example*  
+> *ROC Curve Example*  
 > ![ROC Curve](images/roc_curve.png)
 
